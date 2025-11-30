@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/card_cream"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/text_sheet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Penjelasan AstroBot 🤖"
+        android:textColor="@color/text_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/text_sheet_explanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sedang membaca data bintang..."
+            android:textColor="#444444"
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/btn_open_original"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lihat Gambar Asli / Video HD"
+        android:backgroundTint="@color/neon_blue"
+        android:textColor="@color/text_dark"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
