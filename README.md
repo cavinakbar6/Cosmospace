@@ -45,7 +45,7 @@ Aplikasi ini dibangun menggunakan:
 
 1.  Clone repositori ini:
     ```bash
-    git clone [https://github.com/username-anda/CosmoScope.git](https://github.com/username-anda/CosmoScope.git)
+    git clone [https://github.com/cavinakbar6/CosmoScope.git
     ```
 2.  Buka proyek di **Android Studio**.
 3.  Biarkan Gradle melakukan sinkronisasi (*Sync Project*).
