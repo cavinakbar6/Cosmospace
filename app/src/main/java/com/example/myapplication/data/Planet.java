@@ -4,20 +4,16 @@ import java.io.Serializable;
 
 public class Planet implements Serializable {
 
-    // Info Visual
     private String name;
     private int color;
-    private float orbitRadius; // Jarak dari matahari (visual)
-    private float planetRadius; // Ukuran planet
+    private float orbitRadius;
+    private float planetRadius;
 
-    // Info Animasi (BARU)
-    private float currentAngle; // Sudut posisi saat ini (0 - 360 derajat)
-    private float orbitSpeed;   // Kecepatan putar
+    private float currentAngle;
+    private float orbitSpeed;
 
-    // Variabel pembantu untuk deteksi sentuhan
     private float currentX, currentY;
 
-    // Info Detail (Bottom Sheet)
     private String subtitle;
     private String distanceAU;
     private String orbitPeriod;
@@ -30,8 +26,8 @@ public class Planet implements Serializable {
         this.color = color;
         this.orbitRadius = orbitRadius;
         this.planetRadius = planetRadius;
-        this.orbitSpeed = orbitSpeed; // Semakin besar, semakin cepat
-        this.currentAngle = (float) (Math.random() * 360); // Posisi awal acak biar natural
+        this.orbitSpeed = orbitSpeed;
+        this.currentAngle = (float) (Math.random() * 360);
 
         this.subtitle = subtitle;
         this.distanceAU = distanceAU;
@@ -41,7 +37,6 @@ public class Planet implements Serializable {
         this.moons = moons;
     }
 
-    // Getter & Setter
     public String getName() { return name; }
     public int getColor() { return color; }
     public float getOrbitRadius() { return orbitRadius; }
@@ -58,7 +53,6 @@ public class Planet implements Serializable {
     public float getCurrentY() { return currentY; }
     public void setCurrentY(float y) { this.currentY = y; }
 
-    // Getter Data Detail
     public String getSubtitle() { return subtitle; }
     public String getDistanceAU() { return distanceAU; }
     public String getOrbitPeriod() { return orbitPeriod; }

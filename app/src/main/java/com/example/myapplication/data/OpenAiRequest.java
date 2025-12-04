@@ -5,7 +5,6 @@ import java.util.List;
 
 public class OpenAiRequest {
 
-    // --- PERUBAHAN: Ganti Model Sesuai Contoh Python ---
     public String model = "provider-5/gpt-4o-mini";
     // ---------------------------------------------------
 

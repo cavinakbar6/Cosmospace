@@ -16,9 +16,8 @@ public class ApodResponse {
     private String hdUrl;
 
     @SerializedName("media_type")
-    private String mediaType; // "image" or "video"
+    private String mediaType;
 
-    // Getters
     public String getTitle() { return title; }
     public String getExplanation() { return explanation; }
     public String getUrl() { return url; }

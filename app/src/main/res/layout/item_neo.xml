@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/bg_asteroid_placeholder"
+            android:src="@drawable/ic_asteroid"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="16dp"/>
 

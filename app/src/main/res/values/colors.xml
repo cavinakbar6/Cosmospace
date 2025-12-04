@@ -10,5 +10,7 @@
     <color name="background_dark">#121212</color> <color name="card_cream">#FFF8E7</color>     <color name="text_primary">#FFFFFF</color>
     <color name="text_secondary">#B0B0B0</color>
     <color name="button_accent">#EEDCC6</color>   <color name="text_dark">#2D2D2D</color>
-
+    <color name="neon_purple">#D500F9</color>
+    <color name="neon_cyan">#FF00C5</color>
+    <color name="deep_space">#FF00C5</color>
 </resources>

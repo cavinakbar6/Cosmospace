@@ -4,7 +4,7 @@ public class FeatureItem {
     private String title;
     private String description;
     private int imageResId;
-    private int targetFragmentId; // ID untuk navigasi (misal: 1=APOD, 2=NEO, dst)
+    private int targetFragmentId;
 
     public FeatureItem(String title, String description, int imageResId, int targetFragmentId) {
         this.title = title;

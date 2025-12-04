@@ -9,7 +9,6 @@ public class CloseApproachData {
     @SerializedName("miss_distance")
     private MissDistance missDistance;
 
-    // Getters
     public RelativeVelocity getRelativeVelocity() { return relativeVelocity; }
     public MissDistance getMissDistance() { return missDistance; }
 

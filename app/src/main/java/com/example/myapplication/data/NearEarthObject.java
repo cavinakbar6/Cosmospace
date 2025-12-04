@@ -13,7 +13,6 @@ public class NearEarthObject {
     @SerializedName("close_approach_data")
     private List<CloseApproachData> closeApproachData;
 
-    // Getters
     public String getName() { return name; }
     public EstimatedDiameter getEstimatedDiameter() { return estimatedDiameter; }
     public List<CloseApproachData> getCloseApproachData() { return closeApproachData; }

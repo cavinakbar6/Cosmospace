@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.ExploreQuizActivity; // Pastikan ini di-import
+import com.example.myapplication.ExploreQuizActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.FeatureAdapter;
@@ -36,28 +36,21 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // --- 1. LOGIKA TOMBOL EXPLORE (KUIS) ---
-        // Menghubungkan tombol di banner ke Activity Kuis
         Button btnBannerExplore = view.findViewById(R.id.btn_banner_explore);
 
         btnBannerExplore.setOnClickListener(v -> {
-            // Membuka ExploreQuizActivity saat tombol diklik
             Intent intent = new Intent(getActivity(), ExploreQuizActivity.class);
             startActivity(intent);
         });
 
-        // --- 2. LOGIKA DAFTAR FITUR (RECYCLERVIEW) ---
         recyclerView = view.findViewById(R.id.recycler_features);
 
-        // Konfigurasi LayoutManager Vertikal
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        // Agar scroll lancar di dalam NestedScrollView
         recyclerView.setNestedScrollingEnabled(false);
 
-        // Siapkan Data Fitur
         List<FeatureItem> features = new ArrayList<>();
 
         features.add(new FeatureItem(
@@ -81,7 +74,6 @@ public class HomeFragment extends Fragment {
                 R.id.nav_solar_system
         ));
 
-        // Setup Adapter dan Klik Listener untuk pindah Tab
         adapter = new FeatureAdapter(features, fragmentId -> {
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) getActivity()).loadFragmentFromHome(fragmentId);

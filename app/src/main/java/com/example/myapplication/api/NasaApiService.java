@@ -2,7 +2,6 @@ package com.example.myapplication.api;
 
 import com.example.myapplication.data.ApodResponse;
 import com.example.myapplication.data.NeoResponse;
-import com.example.myapplication.data.MarsPhotoResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -25,12 +24,6 @@ public interface NasaApiService {
             @Query("api_key") String apiKey
     );
 
-    // Mars Rover Photos
-    @GET("mars-photos/api/v1/rovers/curiosity/photos")
-    Call<MarsPhotoResponse> getMarsRoverPhotos(
-            @Query("sol") int sol,
-            @Query("api_key") String apiKey
-    );
 
 }
 

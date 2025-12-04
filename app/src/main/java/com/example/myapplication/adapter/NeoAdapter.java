@@ -21,14 +21,12 @@ public class NeoAdapter extends RecyclerView.Adapter<NeoAdapter.NeoViewHolder> {
     private Context context;
     private static final double DISTANCE_THRESHOLD = 10000000.0;
 
-    // --- 1. BUAT INTERFACE LISTENER ---
     public interface OnNeoClickListener {
         void onNeoClick(NearEarthObject neo);
     }
 
     private OnNeoClickListener listener;
 
-    // Tambahkan listener ke Constructor
     public NeoAdapter(Context context, List<NearEarthObject> neoList, OnNeoClickListener listener) {
         this.context = context;
         this.neoList = neoList;
@@ -72,7 +70,6 @@ public class NeoAdapter extends RecyclerView.Adapter<NeoAdapter.NeoViewHolder> {
             }
         }
 
-        // --- 2. PASANG CLICK LISTENER ---
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onNeoClick(neo);

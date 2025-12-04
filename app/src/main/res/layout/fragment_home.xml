@@ -57,7 +57,7 @@
                     android:id="@+id/text_banner_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="🚀 Learn and Grow with\nthe Universe!"
+                    android:text="🚀 Ayo, penjelajah muda! Semesta memanggil!"
                     android:textColor="@color/text_dark"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -71,7 +71,7 @@
                     android:id="@+id/text_banner_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="So come, young explorers, lets not ignore. The universe calls us!"
+                    android:text="Belajar, Jelajahi, dan Tumbuh bersama Keajaiban Semesta!"
                     android:textColor="#666666"
                     android:textSize="12sp"
                     android:layout_marginTop="8dp"
@@ -121,14 +121,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_banner" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="More"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/text_section_title"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_features"

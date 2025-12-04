@@ -10,6 +10,6 @@ public class OpenAiResponse {
     }
 
     public static class Message {
-        public String content; // Ini isinya JSON kuis nanti
+        public String content;
     }
 }

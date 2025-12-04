@@ -30,28 +30,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ExploreQuizActivity extends AppCompatActivity {
 
-    // UI Components
     private TextView textQuestion, textFeedback, textTitleResult;
     private Button btnOptionA, btnOptionB, btnContinue;
     private LinearLayout layoutResult;
     private ProgressBar progressBar;
 
-    // Logic Variables
     private List<QuizQuestion> questionList = new ArrayList<>();
     private int currentQuestionIndex = 0;
-    private int scoreTypeA = 0; // Skor untuk tipe Visual (APOD/Solar)
-    private int scoreTypeB = 0; // Skor untuk tipe Data/Action (NEO)
+    private int scoreTypeA = 0;
+    private int scoreTypeB = 0;
     private String finalTargetFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore_quiz);
-
-        // Init Views
         textQuestion = findViewById(R.id.text_question);
-        // Pastikan ID ini ada di XML (atau tambahkan TextView judul di result layout)
-        // Jika belum ada, pakai textFeedback saja
         textFeedback = findViewById(R.id.text_feedback);
         btnOptionA = findViewById(R.id.btn_option_a);
         btnOptionB = findViewById(R.id.btn_option_b);
@@ -67,17 +61,12 @@ public class ExploreQuizActivity extends AppCompatActivity {
         btnOptionA.setVisibility(View.GONE);
         btnOptionB.setVisibility(View.GONE);
 
-        // --- PERUBAHAN: Ganti Base URL ke a4f ---
-        // PENTING: Harus diakhiri dengan garis miring "/"
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.a4f.co/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        // -----------------------------------------
-
         OpenAiApiService apiService = retrofit.create(OpenAiApiService.class);
 
-        // --- PROMPT ENGINEERING CANGGIH ---
         String systemPrompt = "Kamu adalah Astronot senior yang ramah. Tugasmu adalah mewawancarai calon kadet cilik (anak SD).";
 
         String userPrompt = "Buatlah daftar 5 pertanyaan kuis psikologi seru untuk menentukan 'Gaya Penjelajah' anak." +
@@ -124,7 +113,6 @@ public class ExploreQuizActivity extends AppCompatActivity {
         });
     }
 
-    // Kuis Cadangan (Manual) jika internet error
     private void startFallbackQuiz() {
         List<QuizQuestion> dummyList = new ArrayList<>();
 
@@ -140,7 +128,6 @@ public class ExploreQuizActivity extends AppCompatActivity {
         q2.optionB = "Laser untuk hancurkan batu";
         dummyList.add(q2);
 
-        // Tambahkan q3, q4, q5 manual disini jika mau
         QuizQuestion q3 = new QuizQuestion();
         q3.question = "Alien seperti apa yang ingin kamu temui?";
         q3.optionA = "Alien yang cantik bersinar";
@@ -156,7 +143,6 @@ public class ExploreQuizActivity extends AppCompatActivity {
         this.scoreTypeA = 0;
         this.scoreTypeB = 0;
 
-        // Tampilkan UI
         btnOptionA.setVisibility(View.VISIBLE);
         btnOptionB.setVisibility(View.VISIBLE);
 
@@ -164,24 +150,20 @@ public class ExploreQuizActivity extends AppCompatActivity {
     }
 
     private void showNextQuestion() {
-        // Cek apakah pertanyaan sudah habis?
         if (currentQuestionIndex >= questionList.size()) {
             showFinalResult();
             return;
         }
 
-        // Update Progress Bar (misal 5 pertanyaan -> 20% per langkah)
         int progress = (int) (((float) currentQuestionIndex / questionList.size()) * 100);
         progressBar.setProgress(progress);
 
-        // Ambil pertanyaan saat ini
         QuizQuestion current = questionList.get(currentQuestionIndex);
 
         textQuestion.setText(current.question);
         btnOptionA.setText(current.optionA);
         btnOptionB.setText(current.optionB);
 
-        // Set Listener untuk tombol
         btnOptionA.setOnClickListener(v -> {
             scoreTypeA++; // Poin untuk Visual
             nextStep();
@@ -199,13 +181,10 @@ public class ExploreQuizActivity extends AppCompatActivity {
     }
 
     private void showFinalResult() {
-        // Sembunyikan elemen kuis
         textQuestion.setVisibility(View.GONE);
         btnOptionA.setVisibility(View.GONE);
         btnOptionB.setVisibility(View.GONE);
         progressBar.setProgress(100);
-
-        // Tampilkan hasil
         layoutResult.setVisibility(View.VISIBLE);
         layoutResult.setAlpha(0f);
         layoutResult.animate().alpha(1f).setDuration(500).start();
@@ -213,23 +192,18 @@ public class ExploreQuizActivity extends AppCompatActivity {
         String titleResult;
         String descResult;
 
-        // LOGIKA PENENTUAN FITUR
         if (scoreTypeA > scoreTypeB) {
-            // Tipe Visual -> APOD
             titleResult = "Kamu Penjelajah Artistik! 🎨✨";
             descResult = "Kamu suka keindahan alam semesta. Misi pertamamu adalah melihat foto-foto menakjubkan di galeri harian NASA.";
             finalTargetFragment = "nav_apod";
             btnContinue.setText("Buka Galeri APOD 🚀");
         } else {
-            // Tipe Aksi -> NEO
             titleResult = "Kamu Penjaga Bumi! 🛡️☄️";
             descResult = "Kamu berani dan suka tantangan. Misi pertamamu adalah memantau asteroid yang mendekati planet kita!";
             finalTargetFragment = "nav_neo";
             btnContinue.setText("Pantau Asteroid 🔭");
         }
 
-        // Cari TextView untuk judul di layoutResult (atau pakai textFeedback untuk desc)
-        // Asumsi di layout_result ada TextView tambahan atau kita gabung teksnya
         textFeedback.setText(titleResult + "\n\n" + descResult);
 
         btnContinue.setOnClickListener(v -> {

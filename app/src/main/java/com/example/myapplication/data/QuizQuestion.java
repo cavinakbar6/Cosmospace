@@ -12,6 +12,5 @@ public class QuizQuestion {
     @SerializedName("option_b")
     public String optionB;
 
-    // Kita tidak butuh target_a/target_b di sini lagi,
-    // karena logika penentuan fitur ada di Java nanti.
+
 }
